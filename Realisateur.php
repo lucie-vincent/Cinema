@@ -66,8 +66,8 @@ class Realisateur {
 
     public function afficherFilmographie() {
         $resultat = "<h2>Filmographie de $this</h2><ul>";
-        foreach ($this->films as $film) {
-            $resultat .= " <li> $livre </li>";
+        foreach ($this->_films as $film) {
+            $resultat .= " <li> $film </li>";
         }
         $resultat .= "</ul>";
         return $resultat;
