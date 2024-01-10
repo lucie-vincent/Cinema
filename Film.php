@@ -7,19 +7,18 @@ class Film {
     private int $_dateSortie;
     private int $_duree;
     private Realisateur $_realisateur;
-    // private string $_synopsis;
+    private Genre $_genre;
 
     //constructeur
-    public function __construct( string $titre, int $dateSortie, int $duree, Realisateur $realisateur) {
+    public function __construct( string $titre, int $dateSortie, int $duree, Realisateur $realisateur, Genre $genre) {
         // affectation aux attributs paramétrables
         $this->_titre = $titre;
         $this->_dateSortie = $dateSortie;
         $this->_duree = $duree;
         $this->_realisateur = $realisateur;
         $this->_realisateur->addFilm($this);
-
-        // affectation aux attributs non paramétrables
-        // $this-> _synopsis = $synopsis;
+        $this->_genre = $genre;
+        $this->_genre->addFilm($this);
     }
 
     // accesseurs - getters
@@ -36,16 +35,14 @@ class Film {
     public function getDuree() : int {
         return $this->_duree;
     }
-
     
     public function getRealisateur() : Realisateur {
         return $this->_realisateur;
     }
     
-    public function getSynopsis() : string {
-        return $this->_synopsis;
+    public function getGenre() : Genre {
+        return $this->_genre;
     }
-
 
     // mutateurs - setters
     public function setTitre(string $titre) {
@@ -64,17 +61,20 @@ class Film {
         $this->_realisateur = $realisateur;
     }
 
-    public function setSynopsis(string $synopsis) {
-        $this->_synopsis = $synopsis;
+    public function setGenre(Genre $genre) {
+        $this->_genre = $genre;
     }
-
 
     // méthodes
 
-
+    public function afficherInfosFilm() {
+        return "<h2>Informations de $this</h2>
+                Réalisateur : $this->_realisateur<br>
+                Durée : $this->_duree minutes <br>";
+    }
 
     public function __toString() {
-        return "$this->_titre ($this->_dateSortie)";
+        return "$this->_titre ($this->_dateSortie) - $this->_genre";
     }
 
 }

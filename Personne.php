@@ -50,6 +50,12 @@ class Personne {
 
     //méthodes
 
+    public function afficherInfos() {
+        return "<h2>Informations de $this</h2>
+                Sexe: $this->_sexe <br>
+                Date de naissance: $this->_dateNaissance<br>";
+    }
+
     public function __toString() {
         return "$this->_prenom $this->_nom";
     }
