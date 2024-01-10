@@ -2,35 +2,34 @@
 
 class Realisateur {
     // attributs - propriétés
-    private string $_nom;
     private string $_prenom;
+    private string $_nom;
     private string $_sexe;
-    private DateTime $_dateNaissance;
+    private int $_dateNaissance;
     private array $_films; 
 
     //constructeur
-    public function __construct(string $nom, string $prenom, string $sexe, string $dateNaissance) {
-        $this->_nom = $nom;
+    public function __construct(string $prenom, string $nom, string $sexe, int $dateNaissance) {
         $this->_prenom = $prenom;
+        $this->_nom = $nom;
         $this->_sexe = $sexe;
-        $this->_dateNaissance = new DateTime($dateNaissance);
+        $this->_dateNaissance = $dateNaissance;
         $this->_films = [];
     }
 
     //accesseurs - getters
-    public function getNom() : string {
-        return $this->_nom;
-    }
-
     public function getPrenom() : string {
         return $this->_prenom;
+    }
+    public function getNom() : string {
+        return $this->_nom;
     }
 
     public function getSexe() : string {
         return $this->_sexe;
     }
 
-    public function getDateNaissance() : DateTime {
+    public function getDateNaissance() : int {
         return $this->_dateNaissance;
     }
 
@@ -39,19 +38,19 @@ class Realisateur {
     }
 
     //mutateurs - setters
-    public function setNom(string $nom) {
-        $this->_nom = $nom;
-    }
-
     public function setPrenom(string $prenom) {
         $this->_prenom = $prenom;
+    }
+
+    public function setNom(string $nom) {
+        $this->_nom = $nom;
     }
 
     public function setSexe(string $sexe) {
         $this->_sexe = $sexe;
     }
 
-    public function setDateNaissance(DateTime $dateNaissance) {
+    public function setDateNaissance(int $dateNaissance) {
         $this->_dateNaissance = $dateNaissance;
     }
 
