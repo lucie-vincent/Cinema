@@ -16,8 +16,8 @@ class Realisateur extends Personne {
     public function setFilms(array $films) {
         $this->_films = $films;
     }
-    // méthodes
 
+    // méthodes
     public function addFilm(Film $film) {
         $this->_films[] = $film;
     }
@@ -27,7 +27,6 @@ class Realisateur extends Personne {
         foreach ($this->_films as $film) {
             $resultat .= " <li> $film </li>";
         }
-        $resultat .= "</ul>";
         return $resultat;
     }
 
